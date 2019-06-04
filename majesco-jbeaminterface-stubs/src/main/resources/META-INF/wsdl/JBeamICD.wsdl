@@ -1,0 +1,2161 @@
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:tns="http://services.server.ws.monitor.stgmastek.com/"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  name="MonitorServicesImplService"
+  targetNamespace="http://services.server.ws.monitor.stgmastek.com/">
+    <wsdl:types>
+        <xs:schema xmlns:tns="http://services.server.ws.monitor.stgmastek.com/"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          elementFormDefault="unqualified"
+          targetNamespace="http://services.server.ws.monitor.stgmastek.com/" version="1.0">
+            <xs:element name="cancelSchedule" type="tns:cancelSchedule"/>
+            <xs:element name="cancelScheduleResponse" type="tns:cancelScheduleResponse"/>
+            <xs:element name="changePassword" type="tns:changePassword"/>
+            <xs:element name="changePasswordResponse" type="tns:changePasswordResponse"/>
+            <xs:element name="checkCompatibility" type="tns:checkCompatibility"/>
+            <xs:element name="checkCompatibilityResponse" type="tns:checkCompatibilityResponse"/>
+            <xs:element name="checkInstructionLog" type="tns:checkInstructionLog"/>
+            <xs:element name="checkInstructionLogResponse" type="tns:checkInstructionLogResponse"/>
+            <xs:element name="defineCalendar" type="tns:defineCalendar"/>
+            <xs:element name="defineCalendarResponse" type="tns:defineCalendarResponse"/>
+            <xs:element name="getBatchCompletedData" type="tns:getBatchCompletedData"/>
+            <xs:element name="getBatchCompletedDataResponse"
+              type="tns:getBatchCompletedDataResponse"/>
+            <xs:element name="getBatchData" type="tns:getBatchData"/>
+            <xs:element name="getBatchDataResponse" type="tns:getBatchDataResponse"/>
+            <xs:element name="getBatchEntityData" type="tns:getBatchEntityData"/>
+            <xs:element name="getBatchEntityDataResponse" type="tns:getBatchEntityDataResponse"/>
+            <xs:element name="getBatchInfo" type="tns:getBatchInfo"/>
+            <xs:element name="getBatchInfoResponse" type="tns:getBatchInfoResponse"/>
+            <xs:element name="getBatchObjectDetails" type="tns:getBatchObjectDetails"/>
+            <xs:element name="getBatchObjectDetailsResponse"
+              type="tns:getBatchObjectDetailsResponse"/>
+            <xs:element name="getCalendarData" type="tns:getCalendarData"/>
+            <xs:element name="getCalendarDataResponse" type="tns:getCalendarDataResponse"/>
+            <xs:element name="getCalendars" type="tns:getCalendars"/>
+            <xs:element name="getCalendarsResponse" type="tns:getCalendarsResponse"/>
+            <xs:element name="getFaliedObjectDetails" type="tns:getFaliedObjectDetails"/>
+            <xs:element name="getFaliedObjectDetailsResponse"
+              type="tns:getFaliedObjectDetailsResponse"/>
+            <xs:element name="getGraphData" type="tns:getGraphData"/>
+            <xs:element name="getGraphDataResponse" type="tns:getGraphDataResponse"/>
+            <xs:element name="getInstallationData" type="tns:getInstallationData"/>
+            <xs:element name="getInstallationDataResponse" type="tns:getInstallationDataResponse"/>
+            <xs:element name="getInstallationDetailsForBatch"
+              type="tns:getInstallationDetailsForBatch"/>
+            <xs:element name="getInstallationDetailsForBatchResponse"
+              type="tns:getInstallationDetailsForBatchResponse"/>
+            <xs:element name="getInstallationsList" type="tns:getInstallationsList"/>
+            <xs:element name="getInstallationsListResponse"
+              type="tns:getInstallationsListResponse"/>
+            <xs:element name="getListenerInfo" type="tns:getListenerInfo"/>
+            <xs:element name="getListenerInfoResponse" type="tns:getListenerInfoResponse"/>
+            <xs:element name="getMenuDetails" type="tns:getMenuDetails"/>
+            <xs:element name="getMenuDetailsResponse" type="tns:getMenuDetailsResponse"/>
+            <xs:element name="getProcessRequestScheduleData"
+              type="tns:getProcessRequestScheduleData"/>
+            <xs:element name="getProcessRequestScheduleDataResponse"
+              type="tns:getProcessRequestScheduleDataResponse"/>
+            <xs:element name="getRoleData" type="tns:getRoleData"/>
+            <xs:element name="getRoleDataResponse" type="tns:getRoleDataResponse"/>
+            <xs:element name="getSecurityDetails" type="tns:getSecurityDetails"/>
+            <xs:element name="getSecurityDetailsResponse" type="tns:getSecurityDetailsResponse"/>
+            <xs:element name="getSystemInfo" type="tns:getSystemInfo"/>
+            <xs:element name="getSystemInfoResponse" type="tns:getSystemInfoResponse"/>
+            <xs:element name="getUserInstallationRoleDetails"
+              type="tns:getUserInstallationRoleDetails"/>
+            <xs:element name="getUserInstallationRoleDetailsResponse"
+              type="tns:getUserInstallationRoleDetailsResponse"/>
+            <xs:element name="manageUser" type="tns:manageUser"/>
+            <xs:element name="manageUserResponse" type="tns:manageUserResponse"/>
+            <xs:element name="processRequest" type="tns:processRequest"/>
+            <xs:element name="processRequestResponse" type="tns:processRequestResponse"/>
+            <xs:element name="refreshProcessRequestScheduleData"
+              type="tns:refreshProcessRequestScheduleData"/>
+            <xs:element name="refreshProcessRequestScheduleDataResponse"
+              type="tns:refreshProcessRequestScheduleDataResponse"/>
+            <xs:element name="resetPassword" type="tns:resetPassword"/>
+            <xs:element name="resetPasswordResponse" type="tns:resetPasswordResponse"/>
+            <xs:element name="retrieveDropDownEntries" type="tns:retrieveDropDownEntries"/>
+            <xs:element name="retrieveDropDownEntriesResponse"
+              type="tns:retrieveDropDownEntriesResponse"/>
+            <xs:element name="retrieveParametersForReport" type="tns:retrieveParametersForReport"/>
+            <xs:element name="retrieveParametersForReportResponse"
+              type="tns:retrieveParametersForReportResponse"/>
+            <xs:element name="retrieveReportDropDownOptionForCompany"
+              type="tns:retrieveReportDropDownOptionForCompany"/>
+            <xs:element name="retrieveReportDropDownOptionForCompanyResponse"
+              type="tns:retrieveReportDropDownOptionForCompanyResponse"/>
+            <xs:element name="runBatch" type="tns:runBatch"/>
+            <xs:element name="runBatchResponse" type="tns:runBatchResponse"/>
+            <xs:element name="stopBatch" type="tns:stopBatch"/>
+            <xs:element name="stopBatchResponse" type="tns:stopBatchResponse"/>
+            <xs:element name="stopMonitorServices" type="tns:stopMonitorServices"/>
+            <xs:element name="stopMonitorServicesResponse" type="tns:stopMonitorServicesResponse"/>
+            <xs:element name="updateUserProfile" type="tns:updateUserProfile"/>
+            <xs:element name="updateUserProfileResponse" type="tns:updateUserProfileResponse"/>
+            <xs:element name="userAuthentication" type="tns:userAuthentication"/>
+            <xs:element name="userAuthenticationResponse" type="tns:userAuthenticationResponse"/>
+            <xs:complexType name="getBatchObjectDetails">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="reqBatchDetails" type="tns:reqBatchDetails"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="reqBatchDetails">
+                <xs:complexContent>
+                    <xs:extension base="tns:reqBatch">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="cycleNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="prePost" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="reqBatch">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseRequestVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="batchNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="batchRevNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="graphId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="installationCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="instructionSeqNo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="userProfile" type="tns:userProfile"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="baseRequestVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="requestTime" type="xs:long"/>
+                            <xs:element minOccurs="0" name="requestType" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="baseVO">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="userProfile">
+                <xs:complexContent>
+                    <xs:extension base="tns:userCredentials">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="adminRole" type="xs:string"/>
+                            <xs:element minOccurs="0" name="connectRole" type="xs:string"/>
+                            <xs:element minOccurs="0" name="createdBy" type="xs:string"/>
+                            <xs:element minOccurs="0" name="createdOn" type="xs:long"/>
+                            <xs:element minOccurs="0" name="defaultView" type="xs:string"/>
+                            <xs:element minOccurs="0" name="effDate" type="xs:long"/>
+                            <xs:element minOccurs="0" name="emailId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="expDate" type="xs:long"/>
+                            <xs:element minOccurs="0" name="faxNo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="forcePasswordFlag" type="xs:string"/>
+                            <xs:element minOccurs="0" name="hintAnswer" type="xs:string"/>
+                            <xs:element minOccurs="0" name="hintQuestion" type="xs:string"/>
+                            <xs:element minOccurs="0" name="installationCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="modifiedBy" type="xs:string"/>
+                            <xs:element minOccurs="0" name="modifiedOn" type="xs:long"/>
+                            <xs:element minOccurs="0" name="telephoneNo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="userName" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="userCredentials">
+                <xs:complexContent>
+                    <xs:extension base="tns:userInfo">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="newPassword" type="xs:string"/>
+                            <xs:element minOccurs="0" name="password" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="userInfo">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseRequestVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="userId" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="getBatchObjectDetailsResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resBatchObjectVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="resBatchObjectVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="batchObjectList"
+                              nillable="true" type="tns:batchObject"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="baseResponseVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="description" type="xs:string"/>
+                            <xs:element minOccurs="0" name="responseTime" type="xs:long"/>
+                            <xs:element minOccurs="0" name="responseType" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="batchObject">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="batchNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="batchRevNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="beSeqNo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="broker" type="xs:string"/>
+                            <xs:element minOccurs="0" name="cashBatchNo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="cashBatchRevNo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="cycleNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="dateExecuted" type="xs:long"/>
+                            <xs:element minOccurs="0" name="dateGenerate" type="xs:long"/>
+                            <xs:element minOccurs="0" name="entityCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="entityType" type="xs:string"/>
+                            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+                            <xs:element minOccurs="0" name="errorType" type="xs:string"/>
+                            <xs:element minOccurs="0" name="gbiBillNo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="generateBy" type="xs:string"/>
+                            <xs:element minOccurs="0" name="installationCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="jobDesc" type="xs:string"/>
+                            <xs:element minOccurs="0" name="jobType" type="xs:string"/>
+                            <xs:element minOccurs="0" name="line" type="xs:string"/>
+                            <xs:element minOccurs="0" name="listInd" type="xs:int"/>
+                            <xs:element minOccurs="0" name="notifyErrorTo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="objExecEndTime" type="xs:long"/>
+                            <xs:element minOccurs="0" name="objExecStartTime" type="xs:long"/>
+                            <xs:element minOccurs="0" name="objectName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="policyNo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="policyRenewNo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="prePost" type="xs:string"/>
+                            <xs:element minOccurs="0" name="printFormNo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="priorityCode1" type="xs:int"/>
+                            <xs:element minOccurs="0" name="priorityCode2" type="xs:int"/>
+                            <xs:element minOccurs="0" name="recMessage" type="xs:string"/>
+                            <xs:element minOccurs="0" name="refSystemActivityNo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="status" type="xs:string"/>
+                            <xs:element minOccurs="0" name="subline" type="xs:string"/>
+                            <xs:element minOccurs="0" name="sysActNo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="taskName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="timeTaken" type="xs:long"/>
+                            <xs:element minOccurs="0" name="userPriority" type="xs:string"/>
+                            <xs:element minOccurs="0" name="vehRefNo" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="getGraphData">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="batch" type="tns:reqBatch"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getGraphDataResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resGraphVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="resGraphVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="batchDetails" type="tns:batchDetails"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="graphDataList"
+                              nillable="true" type="tns:objectExecutionGraphData"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="batchDetails">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="batchEndReason" type="xs:string"/>
+                            <xs:element minOccurs="0" name="batchEndUser" type="xs:string"/>
+                            <xs:element minOccurs="0" name="batchName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="batchNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="batchRevNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="batchStartUser" type="xs:string"/>
+                            <xs:element minOccurs="0" name="batchType" type="xs:string"/>
+                            <xs:element minOccurs="0" name="execEndTime" type="xs:long"/>
+                            <xs:element minOccurs="0" name="execStartTime" type="xs:long"/>
+                            <xs:element minOccurs="0" name="failedOver" type="xs:string"/>
+                            <xs:element minOccurs="0" name="installationCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="instructionSeqNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="processId" type="xs:int"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="objectExecutionGraphData">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="batchNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="batchRevNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="collectTime" type="xs:long"/>
+                            <xs:element minOccurs="0" name="graphId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="graphValue" type="xs:double"/>
+                            <xs:element minOccurs="0" name="graphXAxis" type="xs:string"/>
+                            <xs:element minOccurs="0" name="graphYAxis" type="xs:string"/>
+                            <xs:element minOccurs="0" name="installationCode" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="getCalendars">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="calendarVO" type="tns:reqCalendarVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="reqCalendarVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="calendarData"
+                              type="tns:monitorCalendarData"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="calendarList"
+                              nillable="true" type="tns:monitorCalendarData"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="monitorCalendarData">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="calendarName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="installationCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="nonWorkingDate" type="xs:long"/>
+                            <xs:element minOccurs="0" name="remark" type="xs:string"/>
+                            <xs:element minOccurs="0" name="userId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="year" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="getCalendarsResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resCalendarVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="resCalendarVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="calendarList"
+                              nillable="true" type="tns:monitorCalendarData"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="stopBatch">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="reqInstructionLog"
+                      type="tns:reqInstructionLog"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="reqInstructionLog">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseRequestVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="batchAction" type="xs:string"/>
+                            <xs:element minOccurs="0" name="batchActionTime" type="xs:long"/>
+                            <xs:element minOccurs="0" name="batchNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="batchRevNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="entityValues" type="xs:string"/>
+                            <xs:element minOccurs="0" name="installationCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="instructingUser" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0"
+                              name="instructionParameters" nillable="true"
+                              type="tns:instructionParameter"/>
+                            <xs:element minOccurs="0" name="instructionTime" type="xs:long"/>
+                            <xs:element minOccurs="0" name="message" type="xs:string"/>
+                            <xs:element minOccurs="0" name="messageParam" type="xs:string"/>
+                            <xs:element minOccurs="0" name="seqNo" type="xs:int"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="instructionParameter">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseRequestVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="name" type="xs:string"/>
+                            <xs:element minOccurs="0" name="slNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="type" type="xs:string"/>
+                            <xs:element minOccurs="0" name="value" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="stopBatchResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resInstallationVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="resInstallationVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="installation" type="tns:installation"/>
+                            <xs:element minOccurs="0" name="installationData"
+                              type="tns:installationData"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0"
+                              name="installationDataList" nillable="true"
+                              type="tns:installationData"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="installationsList"
+                              nillable="true" type="tns:installation"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="installation">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="batchNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="batchRevNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="createdBy" type="xs:string"/>
+                            <xs:element minOccurs="0" name="createdOn" type="xs:long"/>
+                            <xs:element minOccurs="0" name="effDate" type="xs:long"/>
+                            <xs:element minOccurs="0" name="expDate" type="xs:long"/>
+                            <xs:element minOccurs="0" name="installationCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="installationDesc" type="xs:string"/>
+                            <xs:element minOccurs="0" name="modifiedBy" type="xs:string"/>
+                            <xs:element minOccurs="0" name="modifiedOn" type="xs:long"/>
+                            <xs:element minOccurs="0" name="timezoneId" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="installationData">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="BNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="BRevNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="batchEndReason" type="xs:string"/>
+                            <xs:element minOccurs="0" name="batchEndTime" type="xs:long"/>
+                            <xs:element minOccurs="0" name="batchStartTime" type="xs:long"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="entityList"
+                              nillable="true" type="tns:installationEntity"/>
+                            <xs:element minOccurs="0" name="instCode" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0"
+                              name="progressLevelDataList" nillable="true"
+                              type="tns:progressLevelData"/>
+                            <xs:element minOccurs="0" name="timezoneId" type="xs:string"/>
+                            <xs:element name="timezoneOffset" type="xs:long"/>
+                            <xs:element minOccurs="0" name="timezoneShortName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="totalFailedObjects" type="xs:int"/>
+                            <xs:element minOccurs="0" name="totalObjects" type="xs:int"/>
+                            <xs:element minOccurs="0" name="totalSkippedObjects" type="xs:int"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="installationEntity">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="description" type="xs:string"/>
+                            <xs:element minOccurs="0" name="entity" type="xs:string"/>
+                            <xs:element minOccurs="0" name="installationCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="lookupColumn" type="xs:string"/>
+                            <xs:element minOccurs="0" name="lookupValue" type="xs:string"/>
+                            <xs:element minOccurs="0" name="numberOfRequiredParameters"
+                              type="xs:int"/>
+                            <xs:element minOccurs="0" name="onErrorFailAll" type="xs:string"/>
+                            <xs:element minOccurs="0" name="precedenceOrder" type="xs:int"/>
+                            <xs:element minOccurs="0" name="valueColumn" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="progressLevelData">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="batchNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="batchRevNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="cycleNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="endDatetime" type="xs:long"/>
+                            <xs:element minOccurs="0" name="errorDesc" type="xs:string"/>
+                            <xs:element minOccurs="0" name="failedOver" type="xs:string"/>
+                            <xs:element minOccurs="0" name="indicatorNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="installationCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="prgActivityType" type="xs:string"/>
+                            <xs:element minOccurs="0" name="prgLevelType" type="xs:string"/>
+                            <xs:element minOccurs="0" name="startDatetime" type="xs:long"/>
+                            <xs:element minOccurs="0" name="status" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="processRequest">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ExecuteReport" type="tns:executeReport"/>
+                    <xs:element minOccurs="0" name="ReqInstructionLog"
+                      type="tns:reqInstructionLog"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="executeReport">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="branchCd" type="xs:string"/>
+                            <xs:element minOccurs="0" name="cancelQueued" type="xs:string"/>
+                            <xs:element minOccurs="0" name="count" type="xs:string"/>
+                            <xs:element minOccurs="0" name="dataStream" type="xs:string"/>
+                            <xs:element minOccurs="0" name="destinationType" type="xs:string"/>
+                            <xs:element minOccurs="0" name="displayOrder" type="xs:string"/>
+                            <xs:element minOccurs="0" name="emailId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+                            <xs:element minOccurs="0" name="endOccurence" type="xs:string"/>
+                            <xs:element minOccurs="0" name="endTime" type="xs:string"/>
+                            <xs:element minOccurs="0" name="exceptionMessage" type="xs:string"/>
+                            <xs:element minOccurs="0" name="frequency" type="xs:string"/>
+                            <xs:element minOccurs="0" name="frequencyUsage" type="xs:string"/>
+                            <xs:element minOccurs="0" name="futureSchedule" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="headingDetails"
+                              nillable="true" type="tns:reportParameter"/>
+                            <xs:element minOccurs="0" name="hoFlag" type="xs:string"/>
+                            <xs:element minOccurs="0" name="hours" type="xs:string"/>
+                            <xs:element minOccurs="0" name="installationCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="minutes" type="xs:string"/>
+                            <xs:element minOccurs="0" name="noOfRequests" type="xs:string"/>
+                            <xs:element minOccurs="0" name="occurence" type="xs:string"/>
+                            <xs:element minOccurs="0" name="optionEndDate" type="xs:string"/>
+                            <xs:element minOccurs="0" name="orderBy" type="xs:string"/>
+                            <xs:element minOccurs="0" name="preProgrammedFrequency"
+                              type="xs:string"/>
+                            <xs:element minOccurs="0" name="processDescription" type="xs:string"/>
+                            <xs:element minOccurs="0" name="processName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="query" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="queryResults"
+                              nillable="true" type="tns:reportParameter"/>
+                            <xs:element minOccurs="0" name="recurrence" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="reportDataDetails"
+                              nillable="true" type="tns:reportParameter"/>
+                            <xs:element minOccurs="0" name="reportFields" type="xs:string"/>
+                            <xs:element minOccurs="0" name="reportId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="reportName" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="reportParameters"
+                              nillable="true" type="tns:reportParameter"/>
+                            <xs:element minOccurs="0" name="reportPath" type="xs:string"/>
+                            <xs:element minOccurs="0" name="reportServerAlias" type="xs:string"/>
+                            <xs:element minOccurs="0" name="reportServerUrl" type="xs:string"/>
+                            <xs:element minOccurs="0" name="reportUrl" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="reports"
+                              nillable="true" type="tns:report"/>
+                            <xs:element minOccurs="0" name="requestId" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0"
+                              name="requestReportParameters" nillable="true"
+                              type="tns:reportParameter"/>
+                            <xs:element minOccurs="0" name="requestState" type="xs:string"/>
+                            <xs:element minOccurs="0" name="scheduleId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="scheduleProcessClassNo"
+                              type="xs:string"/>
+                            <xs:element minOccurs="0" name="scheduleState" type="xs:string"/>
+                            <xs:element minOccurs="0" name="scheduleStatus" type="xs:string"/>
+                            <xs:element minOccurs="0" name="scheduleText" type="xs:string"/>
+                            <xs:element minOccurs="0" name="seconds" type="xs:string"/>
+                            <xs:element minOccurs="0" name="startDate" type="xs:string"/>
+                            <xs:element minOccurs="0" name="startTime" type="xs:string"/>
+                            <xs:element minOccurs="0" name="successFailureFlag" type="xs:string"/>
+                            <xs:element minOccurs="0" name="systemDate" type="xs:dateTime"/>
+                            <xs:element minOccurs="0" name="toHours" type="xs:string"/>
+                            <xs:element minOccurs="0" name="toMinutes" type="xs:string"/>
+                            <xs:element minOccurs="0" name="toSeconds" type="xs:string"/>
+                            <xs:element minOccurs="0" name="userId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="viewFrom" type="xs:string"/>
+                            <xs:element minOccurs="0" name="weekDay" type="xs:string"/>
+                            <xs:element minOccurs="0" name="weekEndTime" type="xs:string"/>
+                            <xs:element minOccurs="0" name="weekStartTime" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="reportParameter">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="dataType" type="xs:string"/>
+                            <xs:element minOccurs="0" name="dateSpecificParamValue"
+                              type="xs:dateTime"/>
+                            <xs:element minOccurs="0" name="dateTime" type="xs:dateTime"/>
+                            <xs:element minOccurs="0" name="defaultValue" type="xs:string"/>
+                            <xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="entities"
+                              nillable="true" type="tns:configParameter"/>
+                            <xs:element minOccurs="0" name="exceptionMessage" type="xs:string"/>
+                            <xs:element minOccurs="0" name="fieldMaxlength" type="xs:int"/>
+                            <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="fixedLength" type="xs:string"/>
+                            <xs:element minOccurs="0" name="groupId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="groupSeqIndicator" type="xs:string"/>
+                            <xs:element minOccurs="0" name="groupSequence" type="xs:string"/>
+                            <xs:element minOccurs="0" name="hint" type="xs:string"/>
+                            <xs:element minOccurs="0" name="installationCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="label" type="xs:string"/>
+                            <xs:element minOccurs="0" name="mandatoryFlag" type="xs:string"/>
+                            <xs:element minOccurs="0" name="menuId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="operator" type="xs:string"/>
+                            <xs:element minOccurs="0" name="paramCount" type="xs:string"/>
+                            <xs:element minOccurs="0" name="paramDataType" type="xs:string"/>
+                            <xs:element minOccurs="0" name="paramField" type="xs:string"/>
+                            <xs:element minOccurs="0" name="paramName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="paramNo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="paramOrder" type="xs:string"/>
+                            <xs:element minOccurs="0" name="paramValue" type="xs:string"/>
+                            <xs:element minOccurs="0" name="processName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="query" type="xs:string"/>
+                            <xs:element minOccurs="0" name="queryFlag" type="xs:string"/>
+                            <xs:element minOccurs="0" name="reportFlag" type="xs:string"/>
+                            <xs:element minOccurs="0" name="reportId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="reqLogFileName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="reqLogFilePath" type="xs:string"/>
+                            <xs:element minOccurs="0" name="requestDate" type="xs:dateTime"/>
+                            <xs:element minOccurs="0" name="requestEndDate" type="xs:dateTime"/>
+                            <xs:element minOccurs="0" name="requestId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="requestState" type="xs:string"/>
+                            <xs:element minOccurs="0" name="scheduleDate" type="xs:dateTime"/>
+                            <xs:element minOccurs="0" name="scheduleId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="startDate" type="xs:dateTime"/>
+                            <xs:element minOccurs="0" name="staticDynamicFlag" type="xs:string"/>
+                            <xs:element minOccurs="0" name="stuckLimit" type="xs:string"/>
+                            <xs:element minOccurs="0" name="stuckMaxLimit" type="xs:string"/>
+                            <xs:element minOccurs="0" name="successFailureFlag" type="xs:string"/>
+                            <xs:element minOccurs="0" name="userId" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="configParameter">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="charValue" type="xs:string"/>
+                            <xs:element minOccurs="0" name="charValue2" type="xs:string"/>
+                            <xs:element minOccurs="0" name="charValue3" type="xs:string"/>
+                            <xs:element minOccurs="0" name="charValue4" type="xs:string"/>
+                            <xs:element minOccurs="0" name="charValue5" type="xs:string"/>
+                            <xs:element minOccurs="0" name="charValue6" type="xs:string"/>
+                            <xs:element minOccurs="0" name="charValue7" type="xs:string"/>
+                            <xs:element minOccurs="0" name="charValue8" type="xs:string"/>
+                            <xs:element minOccurs="0" name="createdBy" type="xs:string"/>
+                            <xs:element minOccurs="0" name="dateValue" type="xs:dateTime"/>
+                            <xs:element minOccurs="0" name="description" type="xs:string"/>
+                            <xs:element minOccurs="0" name="excludeAllOption" type="xs:boolean"/>
+                            <xs:element minOccurs="0" name="masterCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="modifiedBy" type="xs:string"/>
+                            <xs:element minOccurs="0" name="modifiedDate" type="xs:dateTime"/>
+                            <xs:element minOccurs="0" name="numericValue" type="xs:int"/>
+                            <xs:element minOccurs="0" name="orderNo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="parentId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="subCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="zeeValueCheck" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="report">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="companyCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="fileName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="installationCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="parentId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="preFlag" type="xs:string"/>
+                            <xs:element minOccurs="0" name="processType" type="xs:string"/>
+                            <xs:element minOccurs="0" name="programName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="query" type="xs:string"/>
+                            <xs:element minOccurs="0" name="reportId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="reportName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="reportNo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="reportType" type="xs:string"/>
+                            <xs:element minOccurs="0" name="requestId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="sequenceNo" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="processRequestResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resBatchInfo"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="resBatchInfo">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="batchDetails" type="tns:batchDetails"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="batchDetailsList"
+                              nillable="true" type="tns:batchDetails"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0"
+                              name="instructionParametersList" nillable="true"
+                              type="tns:instructionParameter"/>
+                            <xs:element minOccurs="0" name="revisionBatch" type="xs:boolean"/>
+                            <xs:element minOccurs="0" name="scheduledBatch" type="xs:boolean"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="checkInstructionLog">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="reqInstructionLog"
+                      type="tns:reqInstructionLog"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="checkInstructionLogResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resInstructionVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="resInstructionVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="instructionLog"
+                              type="tns:instructionLog"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="instructionLog">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="batchAction" type="xs:string"/>
+                            <xs:element minOccurs="0" name="batchActionTime" type="xs:long"/>
+                            <xs:element minOccurs="0" name="batchNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="batchRevNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="installationCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="instructingUser" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0"
+                              name="instructionParameters" nillable="true"
+                              type="tns:instructionParameter"/>
+                            <xs:element minOccurs="0" name="instructionTime" type="xs:long"/>
+                            <xs:element minOccurs="0" name="message" type="xs:string"/>
+                            <xs:element minOccurs="0" name="messageParam" type="xs:string"/>
+                            <xs:element minOccurs="0" name="seqNo" type="xs:int"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="retrieveDropDownEntries">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="DropDownIdentifierList"
+                      type="tns:configParameter"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="retrieveDropDownEntriesResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resDropDownEntry"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="resDropDownEntry">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="dropDownEntries"
+                              nillable="true" type="tns:dropDownEntry"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="dropDownEntry">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="dropDownKey" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="dropDownValue"
+                              nillable="true" type="tns:configParameter"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="getBatchEntityData">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="reqInstallationVO"
+                      type="tns:reqInstallationVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="reqInstallationVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseRequestVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="installationCode" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="getBatchEntityDataResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resInstallationEntitiesVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="resInstallationEntitiesVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0"
+                              name="installationEntities" nillable="true"
+                              type="tns:installationEntity"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="getCalendarData">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="calendarVO" type="tns:reqCalendarVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getCalendarDataResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resCalendarVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getRoleData">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="getRoleDataResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resRoleDetailsVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="resRoleDetailsVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="roleData" type="tns:roleData"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="roleDataList"
+                              nillable="true" type="tns:roleData"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="roleData">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="effDate" type="xs:long"/>
+                            <xs:element minOccurs="0" name="expDate" type="xs:long"/>
+                            <xs:element minOccurs="0" name="roleId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="roleName" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="stopMonitorServices">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="stopMonitorServicesResponse">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="getInstallationDetailsForBatch">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="batch" type="tns:reqBatch"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getInstallationDetailsForBatchResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resInstallationVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getBatchCompletedData">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="searchBatch" type="tns:reqSearchBatch"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="reqSearchBatch">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseRequestVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="batchDate" type="xs:string"/>
+                            <xs:element minOccurs="0" name="batchEndReason" type="xs:string"/>
+                            <xs:element minOccurs="0" name="batchName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="batchNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="batchType" type="xs:string"/>
+                            <xs:element minOccurs="0" name="installationCode" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="getBatchCompletedDataResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resBatchInfo"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getInstallationData">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="batch" type="tns:reqBatch"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getInstallationDataResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resInstallationVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getBatchInfo">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="batch" type="tns:reqBatch"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getBatchInfoResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resBatchDataVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="resBatchDataVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="batchDataList"
+                              nillable="true" type="tns:batchInfo"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="batchInfo">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="batchEndReason" type="xs:string"/>
+                            <xs:element minOccurs="0" name="batchNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="batchRevNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="batchTimeDiff" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="entityList"
+                              nillable="true" type="tns:installationEntity"/>
+                            <xs:element minOccurs="0" name="execEndTime" type="xs:long"/>
+                            <xs:element minOccurs="0" name="execStartTime" type="xs:long"/>
+                            <xs:element minOccurs="0" name="noOfListners" type="xs:int"/>
+                            <xs:element minOccurs="0" name="noOfObjects" type="xs:int"/>
+                            <xs:element minOccurs="0" name="noOfObjectsExecuted" type="xs:int"/>
+                            <xs:element minOccurs="0" name="noOfObjectsFailed" type="xs:int"/>
+                            <xs:element minOccurs="0" name="noOfObjectsSkipped" type="xs:int"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0"
+                              name="progressLevelDataList" nillable="true"
+                              type="tns:progressLevelData"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="getFaliedObjectDetails">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="reqListenerInfo" type="tns:reqListenerInfo"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="reqListenerInfo">
+                <xs:complexContent>
+                    <xs:extension base="tns:reqBatch">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="listenerId" type="xs:int"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="getFaliedObjectDetailsResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resFailedObjectVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="resFailedObjectVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="failedObjectsData"
+                              nillable="true" type="tns:failedObjectDetails"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="failedObjectDetails">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+                            <xs:element minOccurs="0" name="errorType" type="xs:string"/>
+                            <xs:element minOccurs="0" name="failedObjectName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="failedObjectNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="failedObjectSequence" type="xs:int"/>
+                            <xs:element minOccurs="0" name="listenerId" type="xs:int"/>
+                            <xs:element minOccurs="0" name="taskName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="timeTaken" type="xs:int"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="resetPassword">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="userProfile" type="tns:userProfile"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="resetPasswordResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:baseResponseVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getBatchData">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="batch" type="tns:reqBatch"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getBatchDataResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resBatchInfo"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getListenerInfo">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="batch" type="tns:reqBatch"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getListenerInfoResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resListenerVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="resListenerVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="listenerData"
+                              nillable="true" type="tns:listenerInfo"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="listenerInfo">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="listenerId" type="xs:int"/>
+                            <xs:element minOccurs="0" name="noOfObjectsExecuted" type="xs:int"/>
+                            <xs:element minOccurs="0" name="noOfObjectsFailed" type="xs:int"/>
+                            <xs:element minOccurs="0" name="noOfObjectsSkipped" type="xs:int"/>
+                            <xs:element minOccurs="0" name="timeTaken" type="xs:double"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="getUserInstallationRoleDetails">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="reqUserDetailsVO" type="tns:reqUserDetailsVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="reqUserDetailsVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseRequestVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="userCredentials"
+                              type="tns:userCredentials"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0"
+                              name="userInstallationRoles" nillable="true"
+                              type="tns:userInstallationRole"/>
+                            <xs:element minOccurs="0" name="userProfile" type="tns:userProfile"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="userInstallationRole">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="installationCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="roleId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="userId" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="getUserInstallationRoleDetailsResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resUserDetailsVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="resUserDetailsVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="userCredentials"
+                              type="tns:userCredentials"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0"
+                              name="userInstallationRoles" nillable="true"
+                              type="tns:userInstallationRole"/>
+                            <xs:element minOccurs="0" name="userProfile" type="tns:userProfile"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="userAuthentication">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="userCredentials" type="tns:userCredentials"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="userAuthenticationResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resUserDetails"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="resUserDetails">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="userDetails" type="tns:userDetails"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0"
+                              name="userInstallationRoleList" nillable="true"
+                              type="tns:userInstallationRole"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="userDetails">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="adminRole" type="xs:string"/>
+                            <xs:element minOccurs="0" name="connectRole" type="xs:string"/>
+                            <xs:element minOccurs="0" name="createdBy" type="xs:string"/>
+                            <xs:element minOccurs="0" name="createdOn" type="xs:long"/>
+                            <xs:element minOccurs="0" name="defaultView" type="xs:string"/>
+                            <xs:element minOccurs="0" name="effDate" type="xs:long"/>
+                            <xs:element minOccurs="0" name="emailId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="expDate" type="xs:long"/>
+                            <xs:element minOccurs="0" name="faxNo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="forcePasswordFlag" type="xs:string"/>
+                            <xs:element minOccurs="0" name="hintAnswer" type="xs:string"/>
+                            <xs:element minOccurs="0" name="hintQuestion" type="xs:string"/>
+                            <xs:element minOccurs="0" name="modifiedBy" type="xs:string"/>
+                            <xs:element minOccurs="0" name="modifiedOn" type="xs:long"/>
+                            <xs:element minOccurs="0" name="password" type="xs:string"/>
+                            <xs:element minOccurs="0" name="telephoneNo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="userId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="userName" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="retrieveReportDropDownOptionForCompany">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="UserProfile" type="tns:userProfile"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="retrieveReportDropDownOptionForCompanyResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:executeReport"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="updateUserProfile">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="reqUserDetailsVO" type="tns:reqUserDetailsVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="updateUserProfileResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:baseResponseVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="refreshProcessRequestScheduleData">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="processRequestScheduleVO"
+                      type="tns:reqProcessRequestScheduleVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="reqProcessRequestScheduleVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="installationCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="processRequestScheduleData"
+                              type="tns:processRequestScheduleData"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0"
+                              name="processRequestScheduleList" nillable="true"
+                              type="tns:processRequestScheduleData"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="processRequestScheduleData">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="batchName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="emailIds" type="xs:string"/>
+                            <xs:element minOccurs="0" name="endDt" type="xs:long"/>
+                            <xs:element minOccurs="0" name="endOccur" type="xs:int"/>
+                            <xs:element minOccurs="0" name="endReason" type="xs:string"/>
+                            <xs:element minOccurs="0" name="endTime" type="xs:long"/>
+                            <xs:element minOccurs="0" name="entryDt" type="xs:long"/>
+                            <xs:element minOccurs="0" name="fixedDate" type="xs:string"/>
+                            <xs:element minOccurs="0" name="freqType" type="xs:string"/>
+                            <xs:element minOccurs="0" name="futureSchedulingOnly" type="xs:string"/>
+                            <xs:element minOccurs="0" name="installationCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="keepAlive" type="xs:string"/>
+                            <xs:element minOccurs="0" name="modifyDt" type="xs:long"/>
+                            <xs:element minOccurs="0" name="modifyId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="occurCounter" type="xs:int"/>
+                            <xs:element minOccurs="0" name="onWeekDay" type="xs:string"/>
+                            <xs:element minOccurs="0" name="processClassNm" type="xs:string"/>
+                            <xs:element minOccurs="0" name="recur" type="xs:int"/>
+                            <xs:element minOccurs="0" name="reqStat" type="xs:string"/>
+                            <xs:element minOccurs="0" name="schId" type="xs:int"/>
+                            <xs:element minOccurs="0" name="schStat" type="xs:string"/>
+                            <xs:element minOccurs="0" name="skipFlag" type="xs:string"/>
+                            <xs:element minOccurs="0" name="startDt" type="xs:long"/>
+                            <xs:element minOccurs="0" name="startTime" type="xs:long"/>
+                            <xs:element minOccurs="0" name="userId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="weekdayCheckFlag" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="refreshProcessRequestScheduleDataResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resProcessRequestScheduleVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="resProcessRequestScheduleVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="installationCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="processRequestScheduleData"
+                              type="tns:processRequestScheduleData"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0"
+                              name="processRequestScheduleList" nillable="true"
+                              type="tns:processRequestScheduleData"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="getMenuDetails">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="userProfile" type="tns:userProfile"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getMenuDetailsResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resMenuDetails"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="resMenuDetails">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="children"
+                              nillable="true" type="tns:menuData"/>
+                            <xs:element minOccurs="0" name="installationCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="menuData" type="tns:menuData"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="menuList"
+                              nillable="true" type="tns:resMenuDetails"/>
+                            <xs:element minOccurs="0" name="parentFunctionId" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="menuData">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="functionId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="functionName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="priorFunctionId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="roleId" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="getSystemInfo">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="batch" type="tns:reqBatch"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getSystemInfoResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resSystemDetails"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="resSystemDetails">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="systemDetails"
+                              type="tns:systemDetails"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="systemDetails">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="batchNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="batchRevNo" type="xs:int"/>
+                            <xs:element minOccurs="0" name="javaVersion" type="xs:string"/>
+                            <xs:element minOccurs="0" name="maxMemory" type="xs:int"/>
+                            <xs:element minOccurs="0" name="osConfig" type="xs:string"/>
+                            <xs:element minOccurs="0" name="outputDirFreeMem" type="xs:string"/>
+                            <xs:element minOccurs="0" name="outputDirPath" type="xs:string"/>
+                            <xs:element minOccurs="0" name="preVersion" type="xs:string"/>
+                            <xs:element minOccurs="0" name="usedMemory" type="xs:int"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="cancelSchedule">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="processRequestScheduleVO"
+                      type="tns:reqProcessRequestScheduleVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="cancelScheduleResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resProcessRequestScheduleVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="checkCompatibility">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="version" type="tns:reqVersionVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="reqVersionVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseRequestVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="majorVersion" type="xs:string"/>
+                            <xs:element minOccurs="0" name="minorVersion" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="checkCompatibilityResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:baseResponseVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="manageUser">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="reqUserDetailsVO" type="tns:reqUserDetailsVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="manageUserResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:baseResponseVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getProcessRequestScheduleData">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="processRequestScheduleVO"
+                      type="tns:reqProcessRequestScheduleVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getProcessRequestScheduleDataResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resProcessRequestScheduleVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getSecurityDetails">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="userProfile" type="tns:userProfile"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getSecurityDetailsResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resUserProfile"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="resUserProfile">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResponseVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="userProfile" type="tns:userProfile"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="userProfiles"
+                              nillable="true" type="tns:userProfile"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="getInstallationsList">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="getInstallationsListResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resInstallationVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="retrieveParametersForReport">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Report" type="tns:report"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="retrieveParametersForReportResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:executeReport"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="changePassword">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="userCredentials" type="tns:userCredentials"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="changePasswordResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:baseResponseVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="runBatch">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="reqInstructionLog"
+                      type="tns:reqInstructionLog"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="runBatchResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:resBatchInfo"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="defineCalendar">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="calendarVO" type="tns:reqCalendarVO"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="defineCalendarResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:baseResponseVO"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="resetPasswordResponse">
+        <wsdl:part element="tns:resetPasswordResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getBatchObjectDetails">
+        <wsdl:part element="tns:getBatchObjectDetails" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getGraphData">
+        <wsdl:part element="tns:getGraphData" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="processRequest">
+        <wsdl:part element="tns:processRequest" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getInstallationsListResponse">
+        <wsdl:part element="tns:getInstallationsListResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getBatchEntityData">
+        <wsdl:part element="tns:getBatchEntityData" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getCalendarData">
+        <wsdl:part element="tns:getCalendarData" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="stopMonitorServices">
+        <wsdl:part element="tns:stopMonitorServices" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getBatchEntityDataResponse">
+        <wsdl:part element="tns:getBatchEntityDataResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getBatchCompletedData">
+        <wsdl:part element="tns:getBatchCompletedData" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="resetPassword">
+        <wsdl:part element="tns:resetPassword" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getMenuDetailsResponse">
+        <wsdl:part element="tns:getMenuDetailsResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getSystemInfoResponse">
+        <wsdl:part element="tns:getSystemInfoResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="userAuthentication">
+        <wsdl:part element="tns:userAuthentication" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="retrieveReportDropDownOptionForCompany">
+        <wsdl:part element="tns:retrieveReportDropDownOptionForCompany" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getBatchCompletedDataResponse">
+        <wsdl:part element="tns:getBatchCompletedDataResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="refreshProcessRequestScheduleData">
+        <wsdl:part element="tns:refreshProcessRequestScheduleData" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getBatchObjectDetailsResponse">
+        <wsdl:part element="tns:getBatchObjectDetailsResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getMenuDetails">
+        <wsdl:part element="tns:getMenuDetails" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getInstallationDetailsForBatchResponse">
+        <wsdl:part element="tns:getInstallationDetailsForBatchResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getCalendarDataResponse">
+        <wsdl:part element="tns:getCalendarDataResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="checkCompatibility">
+        <wsdl:part element="tns:checkCompatibility" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getProcessRequestScheduleData">
+        <wsdl:part element="tns:getProcessRequestScheduleData" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="defineCalendarResponse">
+        <wsdl:part element="tns:defineCalendarResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getCalendarsResponse">
+        <wsdl:part element="tns:getCalendarsResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getBatchDataResponse">
+        <wsdl:part element="tns:getBatchDataResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="retrieveParametersForReport">
+        <wsdl:part element="tns:retrieveParametersForReport" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="retrieveParametersForReportResponse">
+        <wsdl:part element="tns:retrieveParametersForReportResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="processRequestResponse">
+        <wsdl:part element="tns:processRequestResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="cancelScheduleResponse">
+        <wsdl:part element="tns:cancelScheduleResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="stopBatchResponse">
+        <wsdl:part element="tns:stopBatchResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="defineCalendar">
+        <wsdl:part element="tns:defineCalendar" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="runBatchResponse">
+        <wsdl:part element="tns:runBatchResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="retrieveDropDownEntriesResponse">
+        <wsdl:part element="tns:retrieveDropDownEntriesResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getSecurityDetailsResponse">
+        <wsdl:part element="tns:getSecurityDetailsResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getCalendars">
+        <wsdl:part element="tns:getCalendars" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="stopBatch">
+        <wsdl:part element="tns:stopBatch" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="checkCompatibilityResponse">
+        <wsdl:part element="tns:checkCompatibilityResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="checkInstructionLog">
+        <wsdl:part element="tns:checkInstructionLog" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="retrieveDropDownEntries">
+        <wsdl:part element="tns:retrieveDropDownEntries" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getRoleData">
+        <wsdl:part element="tns:getRoleData" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getRoleDataResponse">
+        <wsdl:part element="tns:getRoleDataResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getGraphDataResponse">
+        <wsdl:part element="tns:getGraphDataResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getInstallationDetailsForBatch">
+        <wsdl:part element="tns:getInstallationDetailsForBatch" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="manageUserResponse">
+        <wsdl:part element="tns:manageUserResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getInstallationData">
+        <wsdl:part element="tns:getInstallationData" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getBatchInfo">
+        <wsdl:part element="tns:getBatchInfo" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="changePasswordResponse">
+        <wsdl:part element="tns:changePasswordResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getFaliedObjectDetails">
+        <wsdl:part element="tns:getFaliedObjectDetails" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getBatchData">
+        <wsdl:part element="tns:getBatchData" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getListenerInfo">
+        <wsdl:part element="tns:getListenerInfo" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="retrieveReportDropDownOptionForCompanyResponse">
+        <wsdl:part element="tns:retrieveReportDropDownOptionForCompanyResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getListenerInfoResponse">
+        <wsdl:part element="tns:getListenerInfoResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="userAuthenticationResponse">
+        <wsdl:part element="tns:userAuthenticationResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getUserInstallationRoleDetails">
+        <wsdl:part element="tns:getUserInstallationRoleDetails" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getUserInstallationRoleDetailsResponse">
+        <wsdl:part element="tns:getUserInstallationRoleDetailsResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updateUserProfile">
+        <wsdl:part element="tns:updateUserProfile" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="checkInstructionLogResponse">
+        <wsdl:part element="tns:checkInstructionLogResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getInstallationDataResponse">
+        <wsdl:part element="tns:getInstallationDataResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getFaliedObjectDetailsResponse">
+        <wsdl:part element="tns:getFaliedObjectDetailsResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="refreshProcessRequestScheduleDataResponse">
+        <wsdl:part element="tns:refreshProcessRequestScheduleDataResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getSystemInfo">
+        <wsdl:part element="tns:getSystemInfo" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="cancelSchedule">
+        <wsdl:part element="tns:cancelSchedule" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="manageUser">
+        <wsdl:part element="tns:manageUser" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getProcessRequestScheduleDataResponse">
+        <wsdl:part element="tns:getProcessRequestScheduleDataResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updateUserProfileResponse">
+        <wsdl:part element="tns:updateUserProfileResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getSecurityDetails">
+        <wsdl:part element="tns:getSecurityDetails" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getInstallationsList">
+        <wsdl:part element="tns:getInstallationsList" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="changePassword">
+        <wsdl:part element="tns:changePassword" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="stopMonitorServicesResponse">
+        <wsdl:part element="tns:stopMonitorServicesResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="runBatch">
+        <wsdl:part element="tns:runBatch" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getBatchInfoResponse">
+        <wsdl:part element="tns:getBatchInfoResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:portType name="MonitorServices">
+        <wsdl:operation name="getBatchObjectDetails">
+            <wsdl:input message="tns:getBatchObjectDetails" name="getBatchObjectDetails"/>
+            <wsdl:output message="tns:getBatchObjectDetailsResponse"
+              name="getBatchObjectDetailsResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getGraphData">
+            <wsdl:input message="tns:getGraphData" name="getGraphData"/>
+            <wsdl:output message="tns:getGraphDataResponse" name="getGraphDataResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getCalendars">
+            <wsdl:input message="tns:getCalendars" name="getCalendars"/>
+            <wsdl:output message="tns:getCalendarsResponse" name="getCalendarsResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="stopBatch">
+            <wsdl:input message="tns:stopBatch" name="stopBatch"/>
+            <wsdl:output message="tns:stopBatchResponse" name="stopBatchResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="processRequest">
+            <wsdl:input message="tns:processRequest" name="processRequest"/>
+            <wsdl:output message="tns:processRequestResponse" name="processRequestResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="checkInstructionLog">
+            <wsdl:input message="tns:checkInstructionLog" name="checkInstructionLog"/>
+            <wsdl:output message="tns:checkInstructionLogResponse"
+              name="checkInstructionLogResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="retrieveDropDownEntries">
+            <wsdl:input message="tns:retrieveDropDownEntries" name="retrieveDropDownEntries"/>
+            <wsdl:output message="tns:retrieveDropDownEntriesResponse"
+              name="retrieveDropDownEntriesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getBatchEntityData">
+            <wsdl:input message="tns:getBatchEntityData" name="getBatchEntityData"/>
+            <wsdl:output message="tns:getBatchEntityDataResponse"
+              name="getBatchEntityDataResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getCalendarData">
+            <wsdl:input message="tns:getCalendarData" name="getCalendarData"/>
+            <wsdl:output message="tns:getCalendarDataResponse" name="getCalendarDataResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getRoleData">
+            <wsdl:input message="tns:getRoleData" name="getRoleData"/>
+            <wsdl:output message="tns:getRoleDataResponse" name="getRoleDataResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="stopMonitorServices">
+            <wsdl:input message="tns:stopMonitorServices" name="stopMonitorServices"/>
+            <wsdl:output message="tns:stopMonitorServicesResponse"
+              name="stopMonitorServicesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getInstallationDetailsForBatch">
+            <wsdl:input message="tns:getInstallationDetailsForBatch"
+              name="getInstallationDetailsForBatch"/>
+            <wsdl:output message="tns:getInstallationDetailsForBatchResponse"
+              name="getInstallationDetailsForBatchResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getBatchCompletedData">
+            <wsdl:input message="tns:getBatchCompletedData" name="getBatchCompletedData"/>
+            <wsdl:output message="tns:getBatchCompletedDataResponse"
+              name="getBatchCompletedDataResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getInstallationData">
+            <wsdl:input message="tns:getInstallationData" name="getInstallationData"/>
+            <wsdl:output message="tns:getInstallationDataResponse"
+              name="getInstallationDataResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getBatchInfo">
+            <wsdl:input message="tns:getBatchInfo" name="getBatchInfo"/>
+            <wsdl:output message="tns:getBatchInfoResponse" name="getBatchInfoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getFaliedObjectDetails">
+            <wsdl:input message="tns:getFaliedObjectDetails" name="getFaliedObjectDetails"/>
+            <wsdl:output message="tns:getFaliedObjectDetailsResponse"
+              name="getFaliedObjectDetailsResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="resetPassword">
+            <wsdl:input message="tns:resetPassword" name="resetPassword"/>
+            <wsdl:output message="tns:resetPasswordResponse" name="resetPasswordResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getBatchData">
+            <wsdl:input message="tns:getBatchData" name="getBatchData"/>
+            <wsdl:output message="tns:getBatchDataResponse" name="getBatchDataResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getListenerInfo">
+            <wsdl:input message="tns:getListenerInfo" name="getListenerInfo"/>
+            <wsdl:output message="tns:getListenerInfoResponse" name="getListenerInfoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getUserInstallationRoleDetails">
+            <wsdl:input message="tns:getUserInstallationRoleDetails"
+              name="getUserInstallationRoleDetails"/>
+            <wsdl:output message="tns:getUserInstallationRoleDetailsResponse"
+              name="getUserInstallationRoleDetailsResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="userAuthentication">
+            <wsdl:input message="tns:userAuthentication" name="userAuthentication"/>
+            <wsdl:output message="tns:userAuthenticationResponse"
+              name="userAuthenticationResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="retrieveReportDropDownOptionForCompany">
+            <wsdl:input message="tns:retrieveReportDropDownOptionForCompany"
+              name="retrieveReportDropDownOptionForCompany"/>
+            <wsdl:output message="tns:retrieveReportDropDownOptionForCompanyResponse"
+              name="retrieveReportDropDownOptionForCompanyResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateUserProfile">
+            <wsdl:input message="tns:updateUserProfile" name="updateUserProfile"/>
+            <wsdl:output message="tns:updateUserProfileResponse" name="updateUserProfileResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="refreshProcessRequestScheduleData">
+            <wsdl:input message="tns:refreshProcessRequestScheduleData"
+              name="refreshProcessRequestScheduleData"/>
+            <wsdl:output message="tns:refreshProcessRequestScheduleDataResponse"
+              name="refreshProcessRequestScheduleDataResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getMenuDetails">
+            <wsdl:input message="tns:getMenuDetails" name="getMenuDetails"/>
+            <wsdl:output message="tns:getMenuDetailsResponse" name="getMenuDetailsResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getSystemInfo">
+            <wsdl:input message="tns:getSystemInfo" name="getSystemInfo"/>
+            <wsdl:output message="tns:getSystemInfoResponse" name="getSystemInfoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="cancelSchedule">
+            <wsdl:input message="tns:cancelSchedule" name="cancelSchedule"/>
+            <wsdl:output message="tns:cancelScheduleResponse" name="cancelScheduleResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="checkCompatibility">
+            <wsdl:input message="tns:checkCompatibility" name="checkCompatibility"/>
+            <wsdl:output message="tns:checkCompatibilityResponse"
+              name="checkCompatibilityResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="manageUser">
+            <wsdl:input message="tns:manageUser" name="manageUser"/>
+            <wsdl:output message="tns:manageUserResponse" name="manageUserResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getProcessRequestScheduleData">
+            <wsdl:input message="tns:getProcessRequestScheduleData"
+              name="getProcessRequestScheduleData"/>
+            <wsdl:output message="tns:getProcessRequestScheduleDataResponse"
+              name="getProcessRequestScheduleDataResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getSecurityDetails">
+            <wsdl:input message="tns:getSecurityDetails" name="getSecurityDetails"/>
+            <wsdl:output message="tns:getSecurityDetailsResponse"
+              name="getSecurityDetailsResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getInstallationsList">
+            <wsdl:input message="tns:getInstallationsList" name="getInstallationsList"/>
+            <wsdl:output message="tns:getInstallationsListResponse"
+              name="getInstallationsListResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="retrieveParametersForReport">
+            <wsdl:input message="tns:retrieveParametersForReport"
+              name="retrieveParametersForReport"/>
+            <wsdl:output message="tns:retrieveParametersForReportResponse"
+              name="retrieveParametersForReportResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="changePassword">
+            <wsdl:input message="tns:changePassword" name="changePassword"/>
+            <wsdl:output message="tns:changePasswordResponse" name="changePasswordResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="runBatch">
+            <wsdl:input message="tns:runBatch" name="runBatch"/>
+            <wsdl:output message="tns:runBatchResponse" name="runBatchResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="defineCalendar">
+            <wsdl:input message="tns:defineCalendar" name="defineCalendar"/>
+            <wsdl:output message="tns:defineCalendarResponse" name="defineCalendarResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="MonitorServicesImplServiceSoapBinding" type="tns:MonitorServices">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getBatchObjectDetails">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="getBatchObjectDetails">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getBatchObjectDetailsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getGraphData">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="getGraphData">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getGraphDataResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getCalendars">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="getCalendars">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getCalendarsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="stopBatch">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="stopBatch">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="stopBatchResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="processRequest">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="processRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="processRequestResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="checkInstructionLog">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="checkInstructionLog">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="checkInstructionLogResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="retrieveDropDownEntries">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="retrieveDropDownEntries">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="retrieveDropDownEntriesResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getBatchEntityData">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="getBatchEntityData">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getBatchEntityDataResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getCalendarData">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="getCalendarData">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getCalendarDataResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getRoleData">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="getRoleData">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getRoleDataResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="stopMonitorServices">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="stopMonitorServices">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="stopMonitorServicesResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getInstallationDetailsForBatch">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="getInstallationDetailsForBatch">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getInstallationDetailsForBatchResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getBatchCompletedData">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="getBatchCompletedData">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getBatchCompletedDataResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getInstallationData">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="getInstallationData">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getInstallationDataResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getBatchInfo">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="getBatchInfo">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getBatchInfoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getFaliedObjectDetails">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="getFaliedObjectDetails">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getFaliedObjectDetailsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="resetPassword">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="resetPassword">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="resetPasswordResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getBatchData">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="getBatchData">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getBatchDataResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getListenerInfo">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="getListenerInfo">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getListenerInfoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getUserInstallationRoleDetails">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="getUserInstallationRoleDetails">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getUserInstallationRoleDetailsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="userAuthentication">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="userAuthentication">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="userAuthenticationResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="retrieveReportDropDownOptionForCompany">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="retrieveReportDropDownOptionForCompany">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="retrieveReportDropDownOptionForCompanyResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateUserProfile">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="updateUserProfile">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="updateUserProfileResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="refreshProcessRequestScheduleData">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="refreshProcessRequestScheduleData">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="refreshProcessRequestScheduleDataResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getMenuDetails">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="getMenuDetails">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getMenuDetailsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getSystemInfo">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="getSystemInfo">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getSystemInfoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="cancelSchedule">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="cancelSchedule">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="cancelScheduleResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="checkCompatibility">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="checkCompatibility">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="checkCompatibilityResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="manageUser">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="manageUser">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="manageUserResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getProcessRequestScheduleData">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="getProcessRequestScheduleData">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getProcessRequestScheduleDataResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getSecurityDetails">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="getSecurityDetails">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getSecurityDetailsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getInstallationsList">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="getInstallationsList">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getInstallationsListResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="retrieveParametersForReport">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="retrieveParametersForReport">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="retrieveParametersForReportResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="changePassword">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="changePassword">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="changePasswordResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="runBatch">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="runBatch">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="runBatchResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="defineCalendar">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="defineCalendar">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="defineCalendarResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="MonitorServicesImplService">
+        <wsdl:port binding="tns:MonitorServicesImplServiceSoapBinding"
+          name="MonitorServicesImplPort">
+            <soap:address location="http://ndgroup-qa2-billing.cloudinsurer.com/jbeamicd"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
+

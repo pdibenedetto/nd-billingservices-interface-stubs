@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:tns="http://impl.producerupload.webservices.mt.coverall.com/"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  name="ProducerUploadService"
+  targetNamespace="http://impl.producerupload.webservices.mt.coverall.com/">
+    <wsdl:types>
+        <xsd:schema
+          xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+          attributeFormDefault="unqualified"
+          elementFormDefault="unqualified"
+          targetNamespace="http://impl.producerupload.webservices.mt.coverall.com/"
+          xmlns="http://impl.producerupload.webservices.mt.coverall.com/">
+            <xsd:complexType name="producerUploadServiceRequest">
+                <xsd:sequence>
+                    <xsd:element
+                      minOccurs="0"
+                      name="uploadXML"
+                      type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="producerUploadServiceResponse">
+                <xsd:sequence>
+                    <xsd:element
+                      minOccurs="0"
+                      name="errorCode"
+                      type="xsd:string"/>
+                    <xsd:element
+                      minOccurs="0"
+                      name="errorMessages"
+                      type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element
+              name="producerUpload"
+              type="producerUpload"/>
+            <xsd:complexType name="producerUpload">
+                <xsd:sequence>
+                    <xsd:element
+                      minOccurs="0"
+                      name="request"
+                      type="producerUploadServiceRequest"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element
+              name="producerUploadResponse"
+              type="producerUploadResponse"/>
+            <xsd:complexType name="producerUploadResponse">
+                <xsd:sequence>
+                    <xsd:element
+                      minOccurs="0"
+                      name="return"
+                      type="producerUploadServiceResponse"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="producerUpload">
+        <wsdl:part
+          element="tns:producerUpload"
+          name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="producerUploadResponse">
+        <wsdl:part
+          element="tns:producerUploadResponse"
+          name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="ProducerUploadServicePortType">
+        <wsdl:operation name="producerUpload">
+            <wsdl:input
+              message="tns:producerUpload"
+              name="producerUpload">
+            </wsdl:input>
+            <wsdl:output
+              message="tns:producerUploadResponse"
+              name="producerUploadResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding
+      name="ProducerUploadServiceSoapBinding"
+      type="tns:ProducerUploadServicePortType">
+        <soap:binding
+          style="document"
+          transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="producerUpload">
+            <soap:operation
+              style="document"
+              soapAction=""/>
+            <wsdl:input name="producerUpload">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="producerUploadResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ProducerUploadService">
+        <wsdl:port
+          binding="tns:ProducerUploadServiceSoapBinding"
+          name="ProducerUploadServicePort">
+            <soap:address
+              location="https://ndgroup.cloudinsurer.com/mic/soapservices/producerupload?wsdl"></soap:address>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

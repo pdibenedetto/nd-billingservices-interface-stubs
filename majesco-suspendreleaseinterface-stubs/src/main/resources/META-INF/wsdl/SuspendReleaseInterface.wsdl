@@ -1,0 +1,328 @@
+<wsdl:definitions
+  xmlns:ns1="http://schemas.xmlsoap.org/soap/http"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:tns="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="SuspendReleaseInterface"
+  targetNamespace="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface">
+    <wsdl:types>
+        <xs:schema xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface"
+          xmlns:ns2="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/holdreleasedetails"
+          xmlns:ns3="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/inboundrequest"
+          xmlns:ns4="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/holdreleaseresponse"
+          xmlns:ns5="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/outboundresponse"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          attributeFormDefault="unqualified"
+          elementFormDefault="unqualified"
+          targetNamespace="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/suspendreleaseinterface"
+          xmlns="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/suspendreleaseinterface">
+            <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface"/>
+            <xs:import
+              namespace="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/holdreleasedetails"/>
+            <xs:import
+              namespace="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/inboundrequest"/>
+            <xs:import
+              namespace="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/holdreleaseresponse"/>
+            <xs:import
+              namespace="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/outboundresponse"/>
+            <xs:complexType name="servicerequest">
+                <xs:complexContent>
+                    <xs:extension base="ns1:baseWSVo">
+                        <xs:sequence>
+                            <xs:element name="HoldReleaseDetails" type="ns2:holdReleaseDetails"/>
+                            <xs:element name="InboundRequest" type="ns3:inboundRequest"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="serviceresponse">
+                <xs:complexContent>
+                    <xs:extension base="ns1:baseWSVo">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="HoldReleaseResponse"
+                              type="ns4:holdReleaseResponse"/>
+                            <xs:element minOccurs="0" name="outboundResponse"
+                              type="ns5:outboundResponse"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          attributeFormDefault="unqualified"
+          elementFormDefault="unqualified"
+          targetNamespace="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/outboundresponse"
+          xmlns="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/outboundresponse">
+            <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface"/>
+            <xs:complexType name="outboundResponse">
+                <xs:complexContent>
+                    <xs:extension base="ns1:baseWSVo">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="ProcessStatusFlag" type="xs:string"/>
+                            <xs:element minOccurs="0" name="RequestSeq" type="xs:decimal"/>
+                            <xs:element minOccurs="0" name="SourceSystemRequestNo"
+                              type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          attributeFormDefault="unqualified"
+          elementFormDefault="unqualified"
+          targetNamespace="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/inboundrequest"
+          xmlns="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/inboundrequest">
+            <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface"/>
+            <xs:complexType name="inboundRequest">
+                <xs:complexContent>
+                    <xs:extension base="ns1:baseWSVo">
+                        <xs:sequence>
+                            <xs:element name="RequestDate" type="xs:date"/>
+                            <xs:element name="SourceSystemRequestNo" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface"
+          xmlns:tns="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/holdreleaseresponse"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          attributeFormDefault="unqualified" elementFormDefault="unqualified"
+          targetNamespace="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/holdreleaseresponse">
+            <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface"/>
+            <xs:complexType name="holdReleaseResponse">
+                <xs:complexContent>
+                    <xs:extension base="ns1:baseWSVo">
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="Messages"
+                              type="tns:message"/>
+                            <xs:element minOccurs="0" name="ProcessStatusFlag" type="xs:string"/>
+                            <xs:element minOccurs="0" name="RequestSeq" type="xs:decimal"/>
+                            <xs:element minOccurs="0" name="SourceTransactionSequence"
+                              type="xs:decimal"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="message">
+                <xs:complexContent>
+                    <xs:extension base="ns1:baseWSVo">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Code" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Description" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          attributeFormDefault="unqualified"
+          elementFormDefault="unqualified"
+          targetNamespace="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/holdreleasedetails"
+          xmlns="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/holdreleasedetails">
+            <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface"/>
+            <xs:complexType name="holdReleaseDetails">
+                <xs:complexContent>
+                    <xs:extension base="ns1:baseWSVo">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="AccountNo" type="xs:string"/>
+                            <xs:element name="Action" type="xs:string"/>
+                            <xs:element minOccurs="0" name="PolicyEffectiveDate" type="xs:date"/>
+                            <xs:element minOccurs="0" name="PolicyNo" type="xs:string"/>
+                            <xs:element name="Reason" type="xs:string"/>
+                            <xs:element minOccurs="0" name="ReleaseDate" type="xs:date"/>
+                            <xs:element minOccurs="0" name="Remarks" type="xs:string"/>
+                            <xs:element name="SourceSystemUserId" type="xs:string"/>
+                            <xs:element name="SourceTransactionSequence" type="xs:decimal"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema
+          xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/suspendreleaseinterface"
+          xmlns:ns2="http://com/majescomastek/stgicd/ws/meta/authentication"
+          xmlns:ns3="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/holdreleasedetails"
+          xmlns:ns4="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/inboundrequest"
+          xmlns:ns5="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/holdreleaseresponse"
+          xmlns:ns6="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/outboundresponse"
+          xmlns:tns="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          attributeFormDefault="unqualified" elementFormDefault="unqualified"
+          targetNamespace="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface">
+            <xs:import
+              namespace="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/suspendreleaseinterface"/>
+            <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/authentication"/>
+            <xs:import
+              namespace="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/holdreleasedetails"/>
+            <xs:import
+              namespace="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/inboundrequest"/>
+            <xs:import
+              namespace="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/holdreleaseresponse"/>
+            <xs:import
+              namespace="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface/outboundresponse"/>
+            <xs:element name="Authentication" type="ns2:authentication"/>
+            <xs:element name="HoldReleaseDetails" type="ns3:holdReleaseDetails"/>
+            <xs:element name="HoldReleaseResponse" type="ns5:holdReleaseResponse"/>
+            <xs:element name="IWAAuthentication">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Domain" type="xs:string"/>
+                        <xs:element name="User" type="xs:string"/>
+                        <xs:element name="SecretKey" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="InboundRequest" type="ns4:inboundRequest"/>
+            <xs:element name="Message" type="ns5:message"/>
+            <xs:element name="SERVICEREQUEST" type="ns1:servicerequest"/>
+            <xs:element name="SERVICERESPONSE" type="ns1:serviceresponse"/>
+            <xs:element name="SSOAuth">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Username" type="xs:string"/>
+                        <xs:element name="Token" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ServiceAccountAuthentication">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Token" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="TokenAuthentication">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Token" type="xs:string"/>
+                        <xs:element name="TimeStamp" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UsernamePasswordAuth">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Username" type="xs:string"/>
+                        <xs:element name="Password" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="outboundResponse" type="ns6:outboundResponse"/>
+            <xs:element name="service" type="tns:service"/>
+            <xs:element name="serviceResponse" type="tns:serviceResponse"/>
+            <xs:complexType name="service">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="inputMsg" type="ns1:servicerequest"/>
+                    <xs:element minOccurs="0" name="UserAuthentication" type="ns2:authentication"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType abstract="true" name="baseWSVo">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="serviceResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="ns1:serviceresponse"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="Exception" type="tns:Exception"/>
+            <xs:complexType name="Exception">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="message" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          attributeFormDefault="unqualified"
+          elementFormDefault="unqualified"
+          targetNamespace="http://com/majescomastek/stgicd/ws/meta/authentication"
+          xmlns="http://com/majescomastek/stgicd/ws/meta/authentication">
+            <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/suspendreleaseinterface"/>
+            <xs:complexType name="authentication">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="UsernamePasswordAuth">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="Username" type="xs:string"/>
+                                <xs:element name="Password" type="xs:string"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="SSOAuth">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="Username" type="xs:string"/>
+                                <xs:element name="Token" type="xs:string"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="IWAAuthentication">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="Domain" type="xs:string"/>
+                                <xs:element name="User" type="xs:string"/>
+                                <xs:element name="SecretKey" type="xs:string"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="TokenAuthentication">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="Token" type="xs:string"/>
+                                <xs:element name="TimeStamp" type="xs:string"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="ServiceAccountAuthentication">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="Token" type="xs:string"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="serviceResponse">
+        <wsdl:part element="tns:serviceResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="service">
+        <wsdl:part element="tns:service" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="Exception">
+        <wsdl:part element="tns:Exception" name="Exception"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="SuspendReleaseInterface">
+        <wsdl:operation name="service">
+            <wsdl:input message="tns:service" name="service"></wsdl:input>
+            <wsdl:output message="tns:serviceResponse" name="serviceResponse"></wsdl:output>
+            <wsdl:fault message="tns:Exception" name="Exception"></wsdl:fault>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SuspendReleaseInterfaceSoapBinding" type="tns:SuspendReleaseInterface">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="service">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="service">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="serviceResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="SuspendReleaseInterface">
+        <wsdl:port binding="tns:SuspendReleaseInterfaceSoapBinding"
+          name="SuspendReleaseInterfacePort">
+            <soap:address
+              location="http://10.190.123.53:9898/ICDService/services/SuspendReleaseInterface"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

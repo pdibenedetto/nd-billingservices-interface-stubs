@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.nd.billing.webservice.stubs</groupId>
+        <artifactId>nd-billingservices-webservice-stubs</artifactId>
+        <version>1.5</version>
+    </parent>
+
+    <artifactId>majesco-premiuminterface-stubs</artifactId>
+
+    <name>Majesco Premium Interface SOAP Stubs</name>
+
+    <description>
+        During the course of business day, as new business is written and changes
+        are made to existing policies in the policy administration system, the data
+        is transmitted to MajescoBilling by the PAS. Such a message will be
+        accompanied by details of associated receivables and entities.
+        The PAS service request will include – among others – the account number,
+        policy number, payment plan codes and receivables.
+
+        Majesco Billing receives all underwriting information for various
+        transactions such as new business, endorsement, cancellation, renewals and
+        reinstatement performed in PAS. Each policy level transactions will also
+        have information related to entity associated with policy. Example for
+        policy entity could be Insured, additional insured, alternate billing party,
+        Mortgagee, Premium finance company etc...
+
+        This worksheet will provide data flow between PAS and MajescoBilling with
+        detailed information on data attributes and validations.
+    </description>
+
+    <build>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <id>default-copy-resources</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <overwrite>true</overwrite>
+                            <outputDirectory>${project.basedir}/src/main/resources/META-INF/wsdl</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/src/main/resources/wsdl/</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>2.5</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <args/>
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
+                            <wsdlLocation>/META-INF/wsdl/PremiumInterfaceND.wsdl</wsdlLocation>
+                            <wsdlUrls>
+                                <wsdlUrl>
+                                    ${project.basedir}/src/main/resources/META-INF/wsdl/PremiumInterfaceND.wsdl
+                                </wsdlUrl>
+                            </wsdlUrls>
+                            <sourceDestDir>${basedir}/src/main/java</sourceDestDir>
+                            <xadditionalHeaders>true</xadditionalHeaders>
+                            <xdebug>true</xdebug>
+                            <keep>true</keep>
+                            <verbose>true</verbose>
+                            <extension>true</extension>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

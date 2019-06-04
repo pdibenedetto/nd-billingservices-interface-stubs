@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>nd-billingservices-webservice-stubs</artifactId>
+        <groupId>com.nd.billing.webservice.stubs</groupId>
+        <version>1.5</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>nd-billing-jaxws-service-account-search-stubs</artifactId>
+
+    <build>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <id>default-copy-resources</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <overwrite>true</overwrite>
+                            <outputDirectory>${project.basedir}/src/main/resources/META-INF/wsdl</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/src/main/resources/wsdl/</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>2.5</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <args/>
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
+                            <wsdlLocation>/META-INF/wsdl/AccountSearchInterface.wsdl</wsdlLocation>
+                            <wsdlUrls>
+                                <wsdlUrl>
+                                    ${project.basedir}/src/main/resources/META-INF/wsdl/AccountSearchInterface.wsdl
+                                </wsdlUrl>
+                            </wsdlUrls>
+                            <sourceDestDir>${basedir}/src/main/java</sourceDestDir>
+                            <xadditionalHeaders>true</xadditionalHeaders>
+                            <xdebug>true</xdebug>
+                            <keep>true</keep>
+                            <verbose>true</verbose>
+                            <extension>true</extension>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+

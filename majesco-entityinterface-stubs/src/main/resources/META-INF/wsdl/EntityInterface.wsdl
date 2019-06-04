@@ -1,0 +1,408 @@
+<?xml version="1.0"?>
+<wsdl:definitions xmlns:ns1="http://schemas.xmlsoap.org/soap/http"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://com/majescomastek/stgicd/ws/meta/entityinterface"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  name="EntityInterface"
+  targetNamespace="http://com/majescomastek/stgicd/ws/meta/entityinterface">
+    <wsdl:types>
+        <xs:schema
+          xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/entityinterface"
+          xmlns:tns="http://com/majescomastek/stgicd/ws/meta/entityinterface/requestresponse"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          targetNamespace="http://com/majescomastek/stgicd/ws/meta/entityinterface/requestresponse" version="1.0">
+            <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/entityinterface"/>
+            <xs:complexType name="requestResponse">
+                <xs:complexContent>
+                    <xs:extension base="ns1:baseWSVo">
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="Message"
+                              type="tns:message"/>
+                            <xs:element minOccurs="0" name="ProcessStatusFlag" type="xs:string"/>
+                            <xs:element minOccurs="0" name="RequestSeq" type="xs:decimal"/>
+                            <xs:element minOccurs="0" name="SourceSystemRequestNo"
+                              type="xs:string"/>
+                            <xs:element minOccurs="0" name="SuccessFlag" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="message">
+                <xs:complexContent>
+                    <xs:extension base="ns1:baseWSVo">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Code" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Description" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema
+          xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/entityinterface"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          targetNamespace="http://com/majescomastek/stgicd/ws/meta/entityinterface/requestheader" version="1.0">
+            <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/entityinterface"/>
+            <xs:complexType name="requestHeader">
+                <xs:complexContent>
+                    <xs:extension base="ns1:baseWSVo">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="CountOfTransactions" type="xs:decimal"/>
+                            <xs:element minOccurs="0" name="RequestDate" type="xs:date"/>
+                            <xs:element minOccurs="0" name="SourceSystemRequestNo"
+                              type="xs:string"/>
+                            <xs:element minOccurs="0" name="ValidateCountYN" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema
+          xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/entityinterface"
+          xmlns:tns="http://com/majescomastek/stgicd/ws/meta/entityinterface/entityresponse"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          targetNamespace="http://com/majescomastek/stgicd/ws/meta/entityinterface/entityresponse" version="1.0">
+            <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/entityinterface"/>
+            <xs:complexType name="entityResponse">
+                <xs:complexContent>
+                    <xs:extension base="ns1:baseWSVo">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="EntityTransactionSeq"
+                              type="xs:decimal"/>
+                            <xs:element minOccurs="0" name="EntityType" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="Messages"
+                              type="tns:message"/>
+                            <xs:element minOccurs="0" name="ProcessStatusFlag" type="xs:string"/>
+                            <xs:element minOccurs="0" name="SourceSystemEntityCode"
+                              type="xs:string"/>
+                            <xs:element minOccurs="0" name="SuccessFlag" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="message">
+                <xs:complexContent>
+                    <xs:extension base="ns1:baseWSVo">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Code" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Description" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema
+          xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/entityinterface"
+          xmlns:ns2="http://com/majescomastek/stgicd/ws/meta/entityinterface/entity"
+          xmlns:ns3="http://com/majescomastek/stgicd/ws/meta/entityinterface/requestheader"
+          xmlns:ns4="http://com/majescomastek/stgicd/ws/meta/entityinterface/entityresponse"
+          xmlns:ns5="http://com/majescomastek/stgicd/ws/meta/entityinterface/requestresponse"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          targetNamespace="http://com/majescomastek/stgicd/ws/meta/entityinterface/entityinterface"
+          version="1.0">
+            <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/entityinterface"/>
+            <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/entityinterface/entity"/>
+            <xs:import
+              namespace="http://com/majescomastek/stgicd/ws/meta/entityinterface/requestheader"/>
+            <xs:import
+              namespace="http://com/majescomastek/stgicd/ws/meta/entityinterface/entityresponse"/>
+            <xs:import
+              namespace="http://com/majescomastek/stgicd/ws/meta/entityinterface/requestresponse"/>
+            <xs:complexType name="inboundEntityInterface">
+                <xs:complexContent>
+                    <xs:extension base="ns1:baseWSVo">
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" name="Entity" type="ns2:entity"/>
+                            <xs:element name="RequestHeader" type="ns3:requestHeader"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="outputTransaction">
+                <xs:complexContent>
+                    <xs:extension base="ns1:baseWSVo">
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="0"
+                              name="EntityResponse"
+                              type="ns4:entityResponse"/>
+                            <xs:element minOccurs="0" name="RequestResponse"
+                              type="ns5:requestResponse"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/entityinterface"
+          xmlns:tns="http://com/majescomastek/stgicd/ws/meta/entityinterface/entity"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          targetNamespace="http://com/majescomastek/stgicd/ws/meta/entityinterface/entity" version="1.0">
+            <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/entityinterface"/>
+            <xs:complexType name="entity">
+                <xs:complexContent>
+                    <xs:extension base="ns1:baseWSVo">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="AccMonthToBeExtracted"
+                              type="xs:string"/>
+                            <xs:element minOccurs="0" name="Acronym" type="xs:string"/>
+                            <xs:element maxOccurs="unbounded" minOccurs="0"
+                              name="Addresses"
+                              type="tns:inboundEntityAddress"/>
+                            <xs:element minOccurs="0" name="AgentStatementEntityCode"
+                              type="xs:string"/>
+                            <xs:element minOccurs="0" name="AgentType" type="xs:string"/>
+                            <xs:element minOccurs="0" name="AutoCommClosingDays" type="xs:decimal"/>
+                            <xs:element minOccurs="0" name="AutoCommExtractionYN" type="xs:string"/>
+                            <xs:element minOccurs="0" name="BillingContactName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="CommissionCurrency" type="xs:string"/>
+                            <xs:element minOccurs="0" name="CommissionEftTokenId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="CommissionEntityYN" type="xs:string"/>
+                            <xs:element minOccurs="0" name="CommissionPayeeEntityCode"
+                              type="xs:string"/>
+                            <xs:element minOccurs="0" name="CommissionPayeeEntityType"
+                              type="xs:string"/>
+                            <xs:element minOccurs="0" name="CommissionPaymentMethod"
+                              type="xs:string"/>
+                            <xs:element minOccurs="0" name="CommissionStatementEntityCode"
+                              type="xs:string"/>
+                            <xs:element minOccurs="0" name="CommissionStatementEntityType"
+                              type="xs:string"/>
+                            <xs:element minOccurs="0" name="CreditTermDays" type="xs:decimal"/>
+                            <xs:element minOccurs="0" name="CreditTermMonths" type="xs:decimal"/>
+                            <xs:element minOccurs="0" name="CustomerNo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="DoingBusinessAsName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="EftDraftOption" type="xs:string"/>
+                            <xs:element minOccurs="0" name="EntityType" type="xs:string"/>
+                            <xs:element minOccurs="0" name="FrequencyDayOfMonth" type="xs:decimal"/>
+                            <xs:element minOccurs="0" name="FrequencyDayOfWeek" type="xs:string"/>
+                            <xs:element minOccurs="0" name="FrequencyType" type="xs:string"/>
+                            <xs:element minOccurs="0" name="InvoicingCurrency" type="xs:string"/>
+                            <xs:element minOccurs="0" name="NcanGraceDays" type="xs:decimal"/>
+                            <xs:element minOccurs="0" name="OutputDeliveryMethod" type="xs:string"/>
+                            <xs:element minOccurs="0" name="ParentEntityCode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="PaymentMethod" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Process1099Indicator" type="xs:string"/>
+                            <xs:element minOccurs="0" name="RecurringEftTokenId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="RequestedDueDay" type="xs:decimal"/>
+                            <xs:element minOccurs="0" name="SourceSystem" type="xs:string"/>
+                            <xs:element minOccurs="0" name="SourceSystemEntityCode"
+                              type="xs:string"/>
+                            <xs:element minOccurs="0" name="Ssn" type="xs:string"/>
+                            <xs:element minOccurs="0" name="StatementFormat" type="xs:string"/>
+                            <xs:element minOccurs="0" name="StatementIndicatorYN" type="xs:string"/>
+                            <xs:element minOccurs="0" name="StatementMailingDay" type="xs:decimal"/>
+                            <xs:element minOccurs="0" name="Taxid" type="xs:string"/>
+                            <xs:element minOccurs="0" name="UserRemarks" type="xs:string"/>
+                            <xs:element minOccurs="0" name="VendorCode" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="inboundEntityAddress">
+                <xs:complexContent>
+                    <xs:extension base="ns1:baseWSVo">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="Address1" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Address2" type="xs:string"/>
+                            <xs:element minOccurs="0" name="AddressType" type="xs:string"/>
+                            <xs:element minOccurs="0" name="AlternateEmailId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="AlternateFaxNo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="AlternatePhoneNo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="City" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Country" type="xs:string"/>
+                            <xs:element minOccurs="0" name="County" type="xs:string"/>
+                            <xs:element minOccurs="0" name="FirstName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="FullName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="LastName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="MiddleName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="NamePrefix" type="xs:string"/>
+                            <xs:element minOccurs="0" name="NameSuffix" type="xs:string"/>
+                            <xs:element minOccurs="0" name="PrimaryAddressYN" type="xs:string"/>
+                            <xs:element minOccurs="0" name="PrimaryEmailId" type="xs:string"/>
+                            <xs:element minOccurs="0" name="PrimaryFaxNo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="PrimaryPhoneNo" type="xs:string"/>
+                            <xs:element minOccurs="0" name="State" type="xs:string"/>
+                            <xs:element minOccurs="0" name="ZipCode" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/entityinterface/entityinterface"
+          xmlns:ns2="http://com/majescomastek/stgicd/ws/meta/authentication"
+          xmlns:ns3="http://com/majescomastek/stgicd/ws/meta/entityinterface/entity"
+          xmlns:ns4="http://com/majescomastek/stgicd/ws/meta/entityinterface/requestheader" xmlns:ns5="http://com/majescomastek/stgicd/ws/meta/entityinterface/entityresponse"
+          xmlns:ns6="http://com/majescomastek/stgicd/ws/meta/entityinterface/requestresponse"
+          xmlns:tns="http://com/majescomastek/stgicd/ws/meta/entityinterface"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          attributeFormDefault="unqualified"
+          elementFormDefault="unqualified"
+          targetNamespace="http://com/majescomastek/stgicd/ws/meta/entityinterface">
+            <xs:import
+              namespace="http://com/majescomastek/stgicd/ws/meta/entityinterface/entityinterface"/>
+            <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/authentication"/>
+            <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/entityinterface/entity"/>
+            <xs:import
+              namespace="http://com/majescomastek/stgicd/ws/meta/entityinterface/requestheader"/>
+            <xs:import
+              namespace="http://com/majescomastek/stgicd/ws/meta/entityinterface/entityresponse"/>
+            <xs:import
+              namespace="http://com/majescomastek/stgicd/ws/meta/entityinterface/requestresponse"/>
+            <xs:element name="Authentication" type="ns2:authentication"/>
+            <xs:element name="Entity" type="ns3:entity"/>
+            <xs:element name="EntityResponse" type="ns5:entityResponse"/>
+            <xs:element name="IWAAuthentication">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Domain" type="xs:string"/>
+                        <xs:element name="User" type="xs:string"/>
+                        <xs:element name="SecretKey" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="InboundEntityAddress" type="ns3:inboundEntityAddress"/>
+            <xs:element name="InboundEntityInterface" type="ns1:inboundEntityInterface"/>
+            <xs:element name="Message" nillable="true" type="xs:anyType"/>
+            <xs:element name="OutputTransaction" type="ns1:outputTransaction"/>
+            <xs:element name="RequestHeader" type="ns4:requestHeader"/>
+            <xs:element name="RequestResponse" type="ns6:requestResponse"/>
+            <xs:element name="SSOAuth">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Username" type="xs:string"/>
+                        <xs:element name="Token" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ServiceAccountAuthentication">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Token" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="TokenAuthentication">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Token" type="xs:string"/>
+                        <xs:element name="TimeStamp" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UsernamePasswordAuth">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Username" type="xs:string"/>
+                        <xs:element name="Password" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="service" type="tns:service"/>
+            <xs:element name="serviceResponse" type="tns:serviceResponse"/>
+            <xs:complexType name="service">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="inputMsg" type="ns1:inboundEntityInterface"/>
+                    <xs:element minOccurs="0" name="UserAuthentication" type="ns2:authentication"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType abstract="true" name="baseWSVo">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="serviceResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="ns1:outputTransaction"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="Exception" type="tns:Exception"/>
+            <xs:complexType name="Exception">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="message" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/entityinterface"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          targetNamespace="http://com/majescomastek/stgicd/ws/meta/authentication" version="1.0">
+            <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/entityinterface"/>
+            <xs:complexType name="authentication">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="UsernamePasswordAuth">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="Username" type="xs:string"/>
+                                <xs:element name="Password" type="xs:string"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="SSOAuth">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="Username" type="xs:string"/>
+                                <xs:element name="Token" type="xs:string"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="IWAAuthentication">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="Domain" type="xs:string"/>
+                                <xs:element name="User" type="xs:string"/>
+                                <xs:element name="SecretKey" type="xs:string"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="TokenAuthentication">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="Token" type="xs:string"/>
+                                <xs:element name="TimeStamp" type="xs:string"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="ServiceAccountAuthentication">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="Token" type="xs:string"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="serviceResponse">
+        <wsdl:part element="tns:serviceResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="service">
+        <wsdl:part element="tns:service" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="Exception">
+        <wsdl:part element="tns:Exception" name="Exception"/>
+    </wsdl:message>
+    <wsdl:portType name="EntityInterface">
+        <wsdl:operation name="service">
+            <wsdl:input message="tns:service" name="service"/>
+            <wsdl:output message="tns:serviceResponse" name="serviceResponse"/>
+            <wsdl:fault message="tns:Exception" name="Exception"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="EntityInterfaceSoapBinding" type="tns:EntityInterface">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="service">
+            <soap:operation style="document" soapAction=""/>
+            <wsdl:input name="service">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="serviceResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="EntityInterface">
+        <wsdl:port binding="tns:EntityInterfaceSoapBinding" name="EntityInterfacePort">
+            <soap:address
+              location="https://10.190.123.53:9898/ICDService/services/EntityInterface"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
